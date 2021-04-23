@@ -4,7 +4,7 @@ import "./App.css";
 import QuestionCard from "./Components/QuestionCard";
 import { fetchQuestions, Difficulty, QuestionState } from "./Api";
 
-type AnswerObject = {
+export type AnswerObject = {
   question: string;
   answer: string;
   correct: boolean;
@@ -28,8 +28,32 @@ function App() {
     setNumber(0);
     setLoading(false);
   };
-  const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {};
-  const nextQuestion = () => {};
+  const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (!quizOver) {
+      const answer = e.currentTarget.value;
+
+      const correct = questions[number].correct_answer === answer;
+      if (correct) setScore((prev) => prev + 1);
+      const answerobject = {
+        question: questions[number].question,
+        answer,
+        correct,
+        correct_answer: questions[number].correct_answer,
+      };
+      setUserAnswers((prev) => [...prev, answerobject]);
+    }
+  };
+
+  const nextQuestion = () => {
+    const nextQuestion = number + 1;
+
+    if (nextQuestion === totalQuestions) {
+      setQuizOver(true);
+    } else {
+      setNumber(nextQuestion);
+    }
+  };
+
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState<QuestionState[]>([]);
   const [number, setNumber] = useState(0);
@@ -46,7 +70,7 @@ function App() {
           Start
         </button>
       ) : null}
-      {!quizOver ? <p className="score">Score</p> : null}
+      {!quizOver ? <p className="score">Score: {score}</p> : null}
       {loading ? <p>Loading Questions...</p> : null}
       {!loading && !quizOver ? (
         <QuestionCard
