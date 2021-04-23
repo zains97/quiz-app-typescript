@@ -27,6 +27,7 @@ function App() {
     setQuestions(newQuestions);
     setScore(0);
     setNumber(0);
+    setUserAnswers([]);
     setLoading(false);
   };
   const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {

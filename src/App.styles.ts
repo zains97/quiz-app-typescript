@@ -36,16 +36,14 @@ export const Wrapper = styled.div`
     margin: 0;
   }
   h1 {
-    font-family: Fascinate Inline;
-    background-image: linear-gradient(180deg, #fff, #87b1ff);
+    font-family: "Roboto", sans-serif;
+    background-image: linear-gradient(45deg, #87a3ff, #dadff0);
     background-size: 100%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -moz-background-clip: text;
-    -moz-text-fill-color: transparent;
-    filter: drop-shadow(2px 2px #0085a3);
-    font-size: 10vh;
+    filter: drop-shadow(1px 1px #0085a3);
+    font-size: 8vh;
     font-weight: bolder;
     text-align: center;
     margin: 20px;

@@ -37,10 +37,13 @@ export const ButtonWrapper = styled.div<ButtonWrapperProps>`
         : !correct && userClicked
         ? "linear-gradient(90deg,#ff5656, #c16868)"
         : "linear-gradient(90deg,#56ccff, #6eafb4)"};
-    border: 3px solid white;
-    box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.1);
+    border: none;
     border-radius: 10px;
     color: white;
     text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+    :hover {
+      background: ${({ correct, userClicked }) =>
+        correct ? "#5ec40a" : !correct && userClicked ? "tomato" : "#048cc7"};
+    }
   }
 `;
