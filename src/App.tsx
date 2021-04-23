@@ -70,7 +70,7 @@ function App() {
       <h1>React Quiz</h1>
       {quizOver || userAnswers.length === totalQuestions ? (
         <button className="start" onClick={startTrivia}>
-          Start
+          {number + 1 === totalQuestions ? "New Quiz" : "Start"}
         </button>
       ) : null}
       {!quizOver ? <p className="score">Score: {score}</p> : null}
