@@ -63,7 +63,7 @@ function App() {
   const [quizOver, setQuizOver] = useState(true);
   const [score, setScore] = useState(0);
 
-  let totalQuestions = 10;
+  let totalQuestions = 5;
   return (
     <Wrapper>
       <GlobalStyles />
